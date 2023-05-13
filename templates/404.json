@@ -1,0 +1,10 @@
+{
+  "name": "template 404",
+  "wrapper": "div",
+  "sections": {
+    "404": {
+      "type": "template-404"
+    }
+  },
+  "order": ["404"]
+}

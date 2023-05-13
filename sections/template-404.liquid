@@ -1,0 +1,38 @@
+<div class="flex justify-center items-center h-screen text-center">
+  <div class="404">
+    <h1 class="text-4xl ">
+      <span class="text-[64px] font-bold">404</span>
+      {{ section.settings.title }}</h1>
+    <p class="font-semibold py-4">{{ section.settings.description }}</p>
+    <button class="bg-green-500 hover:bg-green-700 p-2 text-white rounded">
+      <a href="#">{{ section.settings.button }}</a>
+    </button>
+  </div>
+</div>
+
+
+
+{% schema %}
+  {
+    "name": "404",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "404 Title",
+        "default": "Page Not Found"
+      }, {
+        "type": "text",
+        "id": "description",
+        "label": "404 Description",
+        "default": "The page you are looking is not available"
+
+      }, {
+        "type": "text",
+        "id": "button",
+        "label": "404 Button",
+        "default": "Continue Shopping"
+      }
+    ]
+  }
+{% endschema %}
