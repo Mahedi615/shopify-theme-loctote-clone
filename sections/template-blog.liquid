@@ -1,15 +1,20 @@
 {% paginate blog.articles by 5 %}
 
-  <h1>{{ blog.title }}</h1>
+
   {% for article in blog.articles %}
-    <div>
-      <h2>
-        <a href="{{ article.url }}">{{ article.title }}</a>
-      </h2>
+    <div class="text-center mx-auto">
+      {% if section.settings.blog_name %}
+        <h2>
+          <a class="text-4xl py-5 font-bold" href="{{ article.url }}">{{ article.title }}</a>
+        </h2>
+      {% endif %}
       {{ article.author }} @ {{ article.published_at | date: "%B %d, %Y" }}
       <div>
         {% if article.image %}
-          <img src={{article.image | img_url: 'large'}} alt="">
+          <img
+            class="mx-auto w-screen my-2 px-2"
+            src={{article.image | img_url: 'medium'}}
+            alt="">
         {% endif %}
 
         {% if article.excerpt.size > 0 %}
@@ -19,6 +24,17 @@
         {% endif %}
       </div>
     </div>
+
+
+    {% if blog.comments_enabled? %}
+      {% if article.comments_count > 0 %}
+        {% form 'new_comment', article %}
+          
+        {% else %}
+          <h1>No comments</h1>
+
+      {% endif %}
+    {% endif %}
   {% endfor %}
 
   {% if paginate.pages > 1 %}
@@ -26,3 +42,24 @@
   {% endif %}
 
 {% endpaginate %}
+
+{% schema %}
+  {
+    "name": "Blog",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "blog_name",
+        "label": "Show Author Name",
+        "default": true
+      }, {
+        "type": "checkbox",
+        "id": "blog_author",
+        "label": "Show Publish date",
+        "default": true
+      }
+    ]
+
+
+  }
+{% endschema %}
