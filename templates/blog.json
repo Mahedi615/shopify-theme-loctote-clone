@@ -1,10 +1,13 @@
 {
-  "name": "Blog",
   "wrapper": "section",
   "sections": {
     "blog": {
-      "type": "template-blog"
+      "type": "template-blog",
+      "settings": {
+      }
     }
   },
-  "order": ["blog"]
+  "order": [
+    "blog"
+  ]
 }

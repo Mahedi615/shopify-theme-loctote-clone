@@ -24,17 +24,6 @@
         {% endif %}
       </div>
     </div>
-
-
-    {% if blog.comments_enabled? %}
-      {% if article.comments_count > 0 %}
-        {% form 'new_comment', article %}
-          
-        {% else %}
-          <h1>No comments</h1>
-
-      {% endif %}
-    {% endif %}
   {% endfor %}
 
   {% if paginate.pages > 1 %}
