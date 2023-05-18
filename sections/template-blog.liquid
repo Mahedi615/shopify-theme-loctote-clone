@@ -1,54 +1,66 @@
-{% paginate blog.articles by 5 %}
+{% paginate blog.articles by section.settings.articles_per_page %}
+  <div class="grid grid-cols-1 text-center  mx-auto  md:grid-cols-3 gap-6">
+    {% for article in blog.articles %}
+      <div class="bg-white flex justify-center items-center flex-col rounded-lg border border-grey-500 shadow-md p-4">
+
+        <div>
+          {% if article.image %}
+            <img
+              class="rounded-t-lg p-3 mx-auto"
+              src="{{article.image | img_url: 'medium'}}"
+              alt="article.alt">
+          {% else %}
+            {{ 'image' | placeholder_svg_tag: 'w-20' }}
+          {% endif %}
+        </div>
+        <div class="p-5">
+          <h3 class=" mb-2 text-2xl font-bold">
+            {{ article.title }}
+
+          </h3>
+
+          {% if article.excerpt.size > 0 %}
+            {% else %}
+              <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{{ article.content | strip_html | truncatewords: 10 }}</p>
+              <a href="{{article.url}}" class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Read more
+                <svg
+                  aria-hidden="true"
+                  class="w-4 h-4 ml-2 -mr-1"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"><path
+                    fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+              </svg>
+            </a>
 
 
-  {% for article in blog.articles %}
-    <div class="text-center mx-auto">
-      {% if section.settings.blog_name %}
-        <h2>
-          <a class="text-4xl py-5 font-bold" href="{{ article.url }}">{{ article.title }}</a>
-        </h2>
-      {% endif %}
-      {{ article.author }} @ {{ article.published_at | date: "%B %d, %Y" }}
-      <div>
-        {% if article.image %}
-          <img
-            class="mx-auto w-screen my-2 px-2"
-            src={{article.image | img_url: 'medium'}}
-            alt="">
-        {% endif %}
 
-        {% if article.excerpt.size > 0 %}
-          {{ article.excerpt }}
-        {% else %}
-          <p>{{ article.content | strip_html | truncatewords: 100 }}</p>
-        {% endif %}
+          {% endif %}
+        </div>
+
       </div>
-    </div>
-  {% endfor %}
-
-  {% if paginate.pages > 1 %}
-    {{ paginate | default_pagination }}
-  {% endif %}
-
-{% endpaginate %}
-
-{% schema %}
-  {
-    "name": "Blog",
-    "settings": [
-      {
-        "type": "checkbox",
-        "id": "blog_name",
-        "label": "Show Author Name",
-        "default": true
-      }, {
-        "type": "checkbox",
-        "id": "blog_author",
-        "label": "Show Publish date",
-        "default": true
-      }
-    ]
+    {% endfor %}
 
 
-  }
-{% endschema %}
+
+  {% endpaginate %}
+  {% schema %}
+    {
+      "name": "Blog",
+      "settings": [
+        {
+          "type": "range",
+          "id": "articles_per_page",
+          "label": "Articles per page",
+          "min": 1,
+          "max": 10,
+          "step": 1,
+          "default": 3
+
+        }
+      ]
+    }
+  {% endschema %}

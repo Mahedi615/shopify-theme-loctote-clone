@@ -1,8 +1,8 @@
 {
-  "wrapper": "section",
+  "wrapper": "div",
   "sections": {
     "template": {
-      "type": "template-blog",
+      "type": "template-article",
       "settings": {}
     }
   },
