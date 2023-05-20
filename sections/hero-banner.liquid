@@ -1,15 +1,32 @@
-<div class="grid grid-cols-2 gap-0">
-  <div class="hero-left">
+<div class="grid grid-cols-1 my-4  md:grid-cols-2 gap-0">
+  <div class="hero-left relative">
     <img
-      class="h-32"
+      class="  w-full h-full  object-cover"
       src={{ section.settings.hero-left | img_url: 'large' }}
       alt="">
+    <div class=" font-bold text-white text-3xl  absolute top-1/2 left-16 ">
+      <h1>MAY SALE NOW ON</h1>
+      <p>GET 25% OFF SITEWIDE</p>
+      <button class="rounded-full bg-rose-400 px-6 text-lg py-3 m-5">
+        <a href={{section.settings.shopNow}}>SHOP NOW</a>
+      </button>
+    </div>
   </div>
-  <div class="hero-right">
-    <img
-      class="h-32"
-      src={{ section.settings.hero-right | img_url: 'large' }}
-      alt="">
+  <div class="hero-right grid grid-rows-1 md:grid-rows-2 gap-0">
+    <div>
+
+      <img
+        class="w-full   h-full object-cover"
+        src={{ section.settings.hero-right-up | img_url: 'large' }}
+        alt="">
+    </div>
+    <div>
+
+      <img
+        class="w-full   h-full object-cover"
+        src={{ section.settings.hero-right-down | img_url: 'large' }}
+        alt="">
+    </div>
   </div>
 </div>
 
@@ -23,8 +40,16 @@
         "label": "hero-left"
       }, {
         "type": "image_picker",
-        "id": "hero-right",
-        "label": "hero-right"
+        "id": "hero-right-up",
+        "label": "hero-right-up"
+      }, {
+        "type": "image_picker",
+        "id": "hero-right-down",
+        "label": "hero-right-down"
+      }, {
+        "type": "url",
+        "id": "shopNow",
+        "label": "shopNow"
       }
     ]
   }

@@ -1,8 +1,16 @@
 {
   "sections": {
     "hero-banner": {
-      "type": "hero-banner"
+      "type": "hero-banner",
+      "settings": {
+        "hero-left": "shopify://shop_images/city-woman-fashion_925x_2x_7f3e6cc8-8a0d-468e-81a9-ae4aae53f448.jpg",
+        "hero-right": "shopify://shop_images/woman-in-the-city_925x_f892ae47-dc5c-488c-9b91-9fbde2c18a9f.jpg"
+      }
+    },
+    "product": {
+      "type": "product",
+      "settings": {}
     }
   },
-  "order": ["hero-banner"]
+  "order": ["hero-banner", "product"]
 }
