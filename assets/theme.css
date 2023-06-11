@@ -1,0 +1,56 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.menu-link:hover {
+  color: #db7761;
+}
+.nav-menus .dropdown-child {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  background-color: #f3f0eb;
+  color: #d9a598;
+  opacity: 0;
+  transition: all 0.6s fade-in-out;
+}
+
+.nav-menus .menu-link:hover > .dropdown-child {
+  transition: all 0.6s fade-in-out;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+
+  opacity: 1;
+  padding: 4vh;
+
+  font-weight: 600;
+  background-color: #f3f0eb;
+
+  width: 100%;
+  left: 0;
+}
+
+.nav-menus .dropdown-grandchild {
+  color: black;
+  transition: all 0.3s ease;
+}
+
+.nav-menus .dropdown-child .menu-link:hover > .dropdown-grandchild {
+  display: block;
+  background-color: yellow;
+}
+
+.menu-link:hover .menu-image {
+  display: block;
+}
+
+.menu-image {
+  display: none;
+}
