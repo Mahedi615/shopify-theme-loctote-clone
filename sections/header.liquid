@@ -1,5 +1,5 @@
-<div class="nav-menu-container flex justify-start items-center py-5 mx-auto w-4/5 border border-red-950">
-  <div class="nav-logo border mx-5 border-yellow-500">
+<div class="nav-menu-container flex justify-start items-center py-5 mx-auto w-4/5 ">
+  <div class="nav-logo ">
     <a href="{{ shop.url }}">
       <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}" />
     </a>
@@ -15,7 +15,7 @@
 
 
             {% for child_link in link.links %}
-              <div class="menu-link border border-red-950">
+              <div class="menu-link ">
                 <a href="{{ child_link.url }}">{{ child_link.title }}</a>
                 {% if child_link.links.size > 0 %}
                   <div class="menu dropdown-grandchild">
@@ -34,7 +34,7 @@
 
                 <img
                   class="ml-auto "
-                  src="{{section.settings.locks_image|img_url: 'medium'}}"
+                  src="{{section.settings.locks_image|image_url: width: 300, height: 300}}"
                   alt="">
 
               </div>
@@ -43,7 +43,7 @@
               <div class="nav-image">
                 <img
                   class="ml-auto"
-                  src="{{section.settings.bags_image |img_url: 'medium'}}"
+                  src="{{section.settings.bags_image |image_url: width: 300, height: 300}}"
                   alt="">
 
               </div>
@@ -52,7 +52,7 @@
               <div class="nav-image">
                 <img
                   class="ml-auto"
-                  src="{{section.settings.acc_image |img_url: 'medium'}}"
+                  src="{{section.settings.acc_image |image_url: width: 300, height: 300}}"
                   alt="">
 
               </div>

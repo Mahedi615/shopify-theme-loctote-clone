@@ -1,55 +1,78 @@
-<div class="grid grid-cols-1 my-4  md:grid-cols-2 gap-0">
-  <div class="hero-left relative">
-    <img
-      class="  w-full h-full  object-cover"
-      src={{ section.settings.hero-left | img_url: 'large' }}
-      alt="">
-    <div class=" font-bold text-white text-3xl  absolute top-1/2 left-16 ">
-      <h1>MAY SALE NOW ON</h1>
-      <p>GET 25% OFF SITEWIDE</p>
-      <button class="rounded-full bg-rose-400 px-6 text-lg py-3 m-5">
-        <a href={{section.settings.shopNow}}>SHOP NOW</a>
-      </button>
+<div class="hero-content relative container flex justify-center items-center">
+  <div>
+    <img class="hero-image " src="{{ section.settings.hero_image-left | image_url:width:800, height:950 }}" alt="">
+
+    <div class="hero-content absolute top-1/2 left-36">
+      <h1 class="text-white my-4 text-7xl font-black">ANTI-THEFT BAGS</h1>
+      <h3 class="text-white my-4 text-4xl font-bold">SAFETY MEETS STYLE
+        </h3>
+      <a class="text-white font-bold btn " href="{{ section.settings.hero_button_link }}">SHOP NOW</a>
     </div>
   </div>
-  <div class="hero-right grid grid-rows-1 md:grid-rows-2 gap-0">
-    <div>
-
-      <img
-        class="w-full   h-full object-cover"
-        src={{ section.settings.hero-right-up | img_url: 'large' }}
-        alt="">
-    </div>
-    <div>
-
-      <img
-        class="w-full   h-full object-cover"
-        src={{ section.settings.hero-right-down | img_url: 'large' }}
-        alt="">
+  <div class="">
+    <div class="video-container">
+      <video width="800" height="100"
+        muted
+        loop
+        autoplay>
+        <source src="{{ section.settings.video_url | video_tag }}</video>
+      </div>
+      <img class="hero-image" src="{{ section.settings.hero_image-bottom | image_url:width:800, height:500,crop: 'top' }}" alt="">
     </div>
   </div>
 </div>
 
+{% stylesheet %}
+  .btn{
+    background-color: #a75b4a;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    
+
+  }
+{% endstylesheet %}
+
+
 {% schema %}
   {
-    "name": "Hero Banner",
+    "name": "Hero",
     "settings": [
       {
         "type": "image_picker",
-        "id": "hero-left",
-        "label": "hero-left"
-      }, {
-        "type": "image_picker",
-        "id": "hero-right-up",
-        "label": "hero-right-up"
-      }, {
-        "type": "image_picker",
-        "id": "hero-right-down",
-        "label": "hero-right-down"
+        "id": "hero_image-left",
+        "label": "Hero Image"
+      },
+      {
+        "type": "text",
+        "id": "hero_title",
+        "label": "Hero Title"
+      },
+      {
+        "type": "text",
+        "id": "hero_text",
+        "label": "Hero Text"
+      },
+      {
+        "type": "text",
+        "id": "hero_button_text",
+        "label": "Hero Button Text"
       }, {
         "type": "url",
-        "id": "shopNow",
-        "label": "shopNow"
+        "id": "hero_button_link",
+        "label": "Hero Button Link"
+      }, {
+        "type": "image_picker",
+        "id": "hero_image-top",
+        "label": "Hero Image"
+      }, {
+        "type": "image_picker",
+        "id": "hero_image-bottom",
+        "label": "Hero Image"
+      }, {
+        "type": "video",
+        "id": "video_url",
+        "label": "Video URL"
       }
     ]
   }

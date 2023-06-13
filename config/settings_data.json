@@ -1,5 +1,21 @@
 {
   "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/logo-black_180x_24a4fbb5-870a-43ff-b1e6-296f0071edf8.png",
+          "menu": "main-menu",
+          "collection_link": "\/collections\/your-collection-handle",
+          "bags_image": "shopify:\/\/shop_images\/LargeBags_1800x_7eadfdf9-0c24-4566-911a-2bc963eac3a9.jpg",
+          "acc_image": "shopify:\/\/shop_images\/Sling_Bag_Anti-Theft_RFID_Grey_Stab_Proof_Seams_3_600x600_8683d3a4-c1d1-4238-af7e-9986467b15a3.jpg",
+          "locks_image": "shopify:\/\/shop_images\/model-in-sunglasses-and-summer-clothes.jpg"
+        }
+      }
+    },
+    "content_for_index": [
+
+    ]
   },
   "presets": {
     "Default": {
