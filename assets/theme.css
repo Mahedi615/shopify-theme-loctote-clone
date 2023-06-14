@@ -64,4 +64,11 @@ body {
 .h-half {
   height: 50%; /* Subtracting the margin from the height */
 }
+.btn{
+  background-color: #a75b4a;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  
 
+}

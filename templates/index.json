@@ -3,20 +3,16 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "hero-left": "shopify:\/\/shop_images\/fashion-portrait.jpg",
-        "hero-right-up": "shopify:\/\/shop_images\/fashion-model-in-red-suit.jpg",
-        "hero-right-down": "shopify:\/\/shop_images\/SmallBags_1800x_f784a18a-063d-4ad6-b110-7b489cb6a4b3.jpg",
+        "hero-left": "shopify://shop_images/fashion-portrait.jpg",
+        "hero-right-up": "shopify://shop_images/fashion-model-in-red-suit.jpg",
+        "hero-right-down": "shopify://shop_images/SmallBags_1800x_f784a18a-063d-4ad6-b110-7b489cb6a4b3.jpg",
         "shopNow": ""
       }
     },
     "product": {
-      "type": "product",
-      "settings": {
-      }
+      "type": "header-collection",
+      "settings": {}
     }
   },
-  "order": [
-    "hero-banner",
-    "product"
-  ]
+  "order": ["hero-banner", "header-collection"]
 }
