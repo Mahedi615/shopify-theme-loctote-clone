@@ -3,16 +3,24 @@
     "hero-banner": {
       "type": "hero-banner",
       "settings": {
-        "hero-left": "shopify://shop_images/fashion-portrait.jpg",
-        "hero-right-up": "shopify://shop_images/fashion-model-in-red-suit.jpg",
-        "hero-right-down": "shopify://shop_images/SmallBags_1800x_f784a18a-063d-4ad6-b110-7b489cb6a4b3.jpg",
-        "shopNow": ""
+        "hero_image-left": "shopify:\/\/shop_images\/Homepage-Left-NeckPouchVintageGrey-LOCTOTE_1e3c542a-d3df-4e5a-bb50-a4e91669ccdd.jpg",
+        "hero_title": "",
+        "hero_text": "",
+        "hero_button_text": "",
+        "hero_button_link": "",
+        "hero_image-bottom": "shopify:\/\/shop_images\/Homepage-Right-SlingBagStealthBlack-LOCTOTE_b8a13b08-9df7-4ea7-9ed0-9f79a065c238.jpg",
+        "video_url": "shopify:\/\/files\/videos\/hero-right-top.mp4"
       }
     },
-    "product": {
+    "header-collection": {
       "type": "header-collection",
-      "settings": {}
+      "settings": {
+        "feature-videos": "shopify:\/\/files\/videos\/147d1b0463f44235a0ed0aa737225cd0.mp4"
+      }
     }
   },
-  "order": ["hero-banner", "header-collection"]
+  "order": [
+    "hero-banner",
+    "header-collection"
+  ]
 }

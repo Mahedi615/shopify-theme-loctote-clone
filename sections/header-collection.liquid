@@ -1,0 +1,81 @@
+{% comment %}
+  <div class="grid  grid-cols-1 md:grid-cols-3 gap-2">
+    {% for product in collections.all.products limit: 3 %}
+    <div class="bg-red-500 rounded-lg p-4">
+      <img src="{{ product.featured_image.src | img_url: 'medium' }}" alt="{{ product.title }}" class=" mb-4">
+      <h2 class="text-lg font-bold">{{ product.title }}</h2>
+      {% if product.variants.size > 1 %}
+      <p class="text-sm">Available Variants:</p>
+      <ul class="mt-2 flex justify-center items-center">
+        {% for variant in product.variants %}
+        <a href="{{variant.url}}" class="px-3"><img class="rounded-full p-2 border border-black"
+            src="{{ variant.featured_media | image_url: width: 30, height:  30 }}" alt=""></a>
+        {% endfor %}
+      </ul>
+      {% endif %}
+    </div>
+    {% endfor %}
+  </div>
+{% endcomment %}
+{%- comment -%}collecctions{%- endcomment -%}
+
+<div class="max-w-screen-xl  mx-auto">
+  <h1 class="text-6xl font-bold mb-6 text-center">BAGS</h1>
+  <div class="flex justify-center hover:scale-110 transition-all duration-300 items-end p-5 ">
+    {% for collection in collections %}
+      <a href="{{ collection.url }}" class="block ">
+        <div class="  relative">
+          <img
+            class="rounded-3xl featured_image p-3 hover:scale-90 transition-all duration-300  "
+            src="{{ collection.featured_image | image_url: width:325,height:406 }}"
+            alt="{{ collection.title }}"
+          >
+          <button
+            class="py-4 px-8 rounded-full text-lg font-bold absolute top-2/3 left-1/2 -translate-x-1/2 border    btn bg-white text-black text-center"
+          >
+            {{ collection.title }}
+          </button>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</div>
+
+{%- comment -%}feature {%- endcomment -%}
+<div class="feature py-28">
+  <div class="max-w-screen-xl my-10 mx-auto">
+    <div class="text-center  my-6 feature-content">
+      <h3 class="text-3xl text-red-300 font-bold">NEVER COMPROMISE</h3>
+      <h1 class="text-6xl font-bold mb-6 text-center">Safety made stylish</h1>
+      <p class="text-lg font-semibold">
+        We push the boundaries of technical durability, modern innovation and
+        timeless design.
+      </p>
+    </div>
+    <div class="feature-video  mx-auto">
+      <video 
+      muted
+      loop
+      autoplay>
+      <source src="{{ section.settings.feature-videos | video_tag }}</video>
+  </div>
+</div>
+
+{% stylesheet %}
+  .feature {
+    background-color: #f7f5f3;
+  }
+  
+{% endstylesheet %}
+{% schema %}
+{
+  "name": "Collection List",
+  "settings": [
+    {
+      "type": "video",
+      "id": "feature-videos",
+      "label": "Video"
+    }
+  ]
+}
+{% endschema %}

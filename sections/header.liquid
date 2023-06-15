@@ -1,19 +1,18 @@
 <div class="nav-menu-container flex justify-start items-center py-5 mx-auto w-4/5 ">
   <div class="nav-logo ">
     <a href="{{ shop.url }}">
-      <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}" />
+      <img src="{{ section.settings.logo | image_url }}" alt="{{ shop.name }}">
     </a>
   </div>
-  <div class="nav-menus flex justify-center items-center">
-    {%- comment -%}for  customer to choose menu use this{%- endcomment -%}
+  <div class="nav-menus  transition-all duration-1000 flex justify-center items-center">
+    {%- comment -%}for customer to choose menu use this{%- endcomment -%}
     {% for link in section.settings.menu.links %}
-      <div class="menu-link">
-        <a class="text-lg font-bold mx-5" href="{{link.url}}">{{ link.title }}</a>
+      <div class="menu-link ">
+        <a class="text-lg font-bold mx-5" href="{{link.url}}">
+          {{- link.title -}}
+        </a>
         {% if link.links.size > 0 %}
-          <div class="menu dropdown-child">
-
-
-
+          <div class="menu dropdown-child    ">
             {% for child_link in link.links %}
               <div class="menu-link ">
                 <a href="{{ child_link.url }}">{{ child_link.title }}</a>
@@ -21,7 +20,9 @@
                   <div class="menu dropdown-grandchild">
                     {% for grandchild_link in child_link.links %}
                       <div class="menu-link">
-                        <a href="{{ grandchild_link.url }}">{{ grandchild_link.title }}</a>
+                        <a href="{{ grandchild_link.url }}">
+                          {{- grandchild_link.title -}}
+                        </a>
                       </div>
                     {% endfor %}
                   </div>
@@ -30,48 +31,40 @@
             {% endfor %}
             {% if link.title == 'LOCKS' %}
               <div class="nav-image">
-
-
                 <img
                   class="ml-auto "
                   src="{{section.settings.locks_image|image_url: width: 300, height: 300}}"
-                  alt="">
-
+                  alt=""
+                >
               </div>
             {% elsif link.title == 'BAGS' %}
-
               <div class="nav-image">
                 <img
                   class="ml-auto"
                   src="{{section.settings.bags_image |image_url: width: 300, height: 300}}"
-                  alt="">
-
+                  alt=""
+                >
               </div>
             {% elsif link.title == 'ACCESSORIES' %}
-
               <div class="nav-image">
                 <img
                   class="ml-auto"
                   src="{{section.settings.acc_image |image_url: width: 300, height: 300}}"
-                  alt="">
-
+                  alt=""
+                >
               </div>
             {% endif %}
-
-
-
           </div>
         {% endif %}
-
       </div>
     {% endfor %}
-
-
   </div>
 </div>
 
-<script>// Add JavaScript here if needed for further functionality
-</script>{% schema %}
+<script>
+  // Add JavaScript here if needed for further functionality
+</script>
+{% schema %}
 {
   "name": "Header",
   "settings": [
@@ -94,16 +87,18 @@
       "id": "collection_link",
       "label": "Collection Link",
       "default": "/collections/your-collection-handle"
-    }, {
+    },
+    {
       "type": "image_picker",
       "id": "bags_image",
       "label": "bags_image"
-    }, {
+    },
+    {
       "type": "image_picker",
       "id": "acc_image",
       "label": "acc_image"
-
-    }, {
+    },
+    {
       "type": "image_picker",
       "id": "locks_image",
       "label": "locks_image"
